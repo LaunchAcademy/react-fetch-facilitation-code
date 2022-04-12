@@ -5,15 +5,12 @@ const NewRecipeForm = props => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    debugger
-    let formPayload = {
-      recipe: {
-        name: name
-      }
+    
+    const formPayload = {
+      name: name
     }
-    debugger
+
     props.addRecipe(formPayload)
-    debugger
     setName("")
   }
 

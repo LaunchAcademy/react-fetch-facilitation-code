@@ -3,7 +3,7 @@ import fs from "fs"
 const recipesPath = "recipes.json"
 
 class Recipe {
-  constructor({name}) {
+  constructor({ name }) {
     this.name = name
   }
 
@@ -37,6 +37,7 @@ class Recipe {
       delete this.errors
       const recipes = this.constructor.findAll()
       recipes.push(this)
+      console.log(recipes)
       const data = { recipes: recipes }
       fs.writeFileSync(recipesPath, JSON.stringify(data))
       return true

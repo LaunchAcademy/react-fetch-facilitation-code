@@ -1,0 +1,3 @@
+- introduce application
+- issue of no persistence 
+- we need to retrieve the data from the backend with fetch

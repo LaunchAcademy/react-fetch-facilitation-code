@@ -6,20 +6,16 @@ import Recipe from "../../../models/Recipe.js"
 const recipesRouter = new express.Router()
 
 recipesRouter.get("/", (req, res) => {
-  res.set({ 'Content-Type': 'application/json' }).status(200).json({ recipes: Recipe.findAll() })
-})
-
-recipesRouter.get("/random", (req, res) => {
   const recipes = Recipe.findAll()
-  const randomRecipe = _.sample(recipes)
-  res.set({ 'Content-Type': 'application/json' }).status(200).json({ recipe: randomRecipe })
+
+  res.set({ 'Content-Type': 'application/json' }).status(200).json({ recipes: recipes })
 })
 
 recipesRouter.post('/', (req, res) => {
+  console.log(req.body)
   const recipe = new Recipe(req.body.recipe)
-  debugger
+
   if(recipe.save()) {
-    // `res.json()` stringifies our data, and sets the Content-Type header to "application/json"
     res.status(201).json({ recipe })
   } else {
     res.status(422).json({ errors: recipe.errors })
@@ -27,3 +23,14 @@ recipesRouter.post('/', (req, res) => {
 })
 
 export default recipesRouter
+
+
+
+
+
+
+// recipesRouter.get("/random", (req, res) => {
+//   const recipes = Recipe.findAll()
+//   const randomRecipe = _.sample(recipes)
+//   res.set({ 'Content-Type': 'application/json' }).status(200).json({ recipe: randomRecipe })
+// })
