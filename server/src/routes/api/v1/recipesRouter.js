@@ -4,7 +4,7 @@ import _ from "lodash"
 import Recipe from "../../../models/Recipe.js"
 
 const recipesRouter = new express.Router()
-
+// /api/v1/recipes
 recipesRouter.get("/", (req, res) => {
   res.set({ 'Content-Type': 'application/json' }).status(200).json({ recipes: Recipe.findAll() })
 })

@@ -2,11 +2,11 @@ import React from 'react';
 import SproutTile from './SproutTile'
 
 const RecipesList = props => {
-
+// debugger
   const sprouts = props.recipes.map((recipe) => {
     return(
       <SproutTile
-        key={recipe}
+        key={recipe.name}
         recipe={recipe}
       />
     )
